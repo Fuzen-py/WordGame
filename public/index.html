@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>Word Game</title>
-	</head>
-	<body style="background-color: #000000; color: #ffffff">
-		<div id="instructions" style="font-size: 20px;">
-			<span>To reset press </span><span class="key" style="background-color: #AAB6FE; color:#000">~</span>
-			<br>
-			<span>Press the leters on your keyboard to guess the word</span>
-			<br>
-			<span>High Score: </span><span id="high_score">0</span>
-		</div>
-		<div id="dynamic" style="display: flex; padding-top: 30%; padding-left: 40%; font-size:40px;color: white">
-			<span id="word_line"></span>
-			<span id="remaining" style="padding-left:3%"></span>
-		</div>
-		<script src="main.js"></script>
-	</body>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<link rel="stylesheet" href="main.css">
+	<title>Word Game</title>
+</head>
+
+<body>
+	<div id="instructions">
+		<span>To reset press </span><span class="key">`</span>
+		<br>
+		<span>Press the leters on your keyboard to guess the word</span>
+		<br>
+		<span>High Score: </span><span id="high_score">0</span>
+	</div>
+	<div id="dynamic">
+		<span id="word_line"></span>
+		<span id="remaining"></span>
+	</div>
+	<script src="main.js"></script>
+</body>
+
 </html>
