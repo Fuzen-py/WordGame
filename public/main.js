@@ -2,7 +2,6 @@
 // TODO: Use a https API
 (function() {
 
-
 const apiURL = "http://setgetgo.com/randomword/get.php"
 // Minimum Length
 const minLength = 4;
@@ -61,23 +60,23 @@ function reset() {
 function onKeyPress(e) {
     if (validKeys.includes(e.key.toLowerCase())) {
         let letter = e.key;
-        if (attemptsRemaining === 0) {
-            return
-        }
-        if (blanks.join('') === word.join('')) {
-            return
-        }
+        if (attemptsRemaining === 0 || blanks.join('') === word.join('')) {return}
+        // if letter is in word
         if (word.includes(letter.toLowerCase())) {
+            // Edit blanks
             for (var i = 0; i < word.length; i++) {
                 if (letter === word[i]) {
                     blanks[i] = letter;
                 }
             }
+            // Compare if blanks is the same as word
             if (blanks.join('') === word.join('')) {
                 return winScreen()
             }
+            // Render if not
             return doRender()
         }
+        // If letter is not in word
         attemptsRemaining--
         if (attemptsRemaining === 0) {
             return lossScreen()
@@ -95,6 +94,5 @@ doRender()
 
 // Register Keypress Handler
 document.body.addEventListener('keypress', onKeyPress)
-
 
 }())
