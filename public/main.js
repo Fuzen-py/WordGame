@@ -1,7 +1,10 @@
+// TODO: Async API Request
+// TODO: Use a https API
 (function() {
 
-// Minimum Length
+
 const apiURL = "http://setgetgo.com/randomword/get.php"
+// Minimum Length
 const minLength = 4;
 const wordLine = document.querySelector('#word_line');
 const remainingSelector = document.querySelector('#remaining');
@@ -17,13 +20,13 @@ function getWord() {
     return request.responseText.toLocaleLowerCase().split(''); 
 }
 
-// TODO: Create a loss screen
+// Displays a loss screen
 function lossScreen() {
     wordLine.innerText = `You lose, it was "${word.join('')}"`;
     remainingSelector.innerText = '';
 }
 
-// TODO: Create a win screen
+// Displays a win screen
 function winScreen() {
     score = attemptsRemaining / (word.length + 2) * 100 >> 0
     wordLine.innerText = `"${word.join('')}" You win!`;
@@ -36,13 +39,14 @@ function winScreen() {
 }
 
 let word = getWord();
+// Creates an array of `_` of the same length of word
 let blanks = Array(word.length).fill('_');
 let attemptsRemaining = word.length + 2;
+// Array of valid keys
 let validKeys = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
-
+// Updates the page to show the new content
 function doRender() {
-    console.log(blanks)
     wordLine.innerText = blanks.join(' ');
     remainingSelector.innerText = attemptsRemaining;
 }
@@ -63,7 +67,6 @@ function onKeyPress(e) {
         if (blanks.join('') === word.join('')) {
             return
         }
-        console.log(letter, word)
         if (word.includes(letter.toLowerCase())) {
             for (var i = 0; i < word.length; i++) {
                 if (letter === word[i]) {
