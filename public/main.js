@@ -74,7 +74,7 @@ function onKeyPress(e) {
                 winScreen()
                 return
             }
-            doRender()
+            return doRender()
         }
         attemptsRemaining--
         if (attemptsRemaining === 0) {
