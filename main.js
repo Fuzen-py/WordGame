@@ -1,7 +1,6 @@
 (function () {
-    const MIN_LENGTH = 4;
     const API_BASE = "https://fuzen.info"
-    const API_URL = `${API_BASE}/randword/${MIN_LENGTH}`
+    const API_URL = `${API_BASE}/randword/`
     const wordLine = document.querySelector('#word_line');
     const remainingSelector = document.querySelector('#remaining');
     const highScoreSelector = document.querySelector("#high_score");
